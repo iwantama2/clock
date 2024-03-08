@@ -1,0 +1,165 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #2f363e;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    gap: 2rem;
+    flex-wrap: nowrap;
+}
+
+.border-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 350px;
+    background-color: #2f363e;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.75),
+        inset 5px 5px 7px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 5px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    border-top-left-radius: 225px;
+    border-top-right-radius: 220px;
+    flex-direction: column;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #2f363e;
+    border-radius: 50%;
+    box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #2f363e;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 99999;
+}
+
+.clock span {
+    position: absolute;
+    padding: 10px;
+    inset: 2px;
+    color: #fff;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+    font-size: 1.5em;
+    opacity: 0.5;
+    font-weight: 600;
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+}
+
+.circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.circle i {
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background-color: var(--clr);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.menit {
+    width: 160px;
+    height: 160px;
+}
+
+.jam {
+    width: 120px;
+    height: 120px;
+}
+
+/* Digital clock */
+#time {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+        inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#time div {
+    position: relative;
+    width: 60px;
+    text-align: center;
+    color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after {
+    content: ':';
+    position: absolute;
+    right: -4px;
+    font-weight: 500;
+    animation: animate 1s steps(1) infinite;
+}
+
+#time div:last-child {
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width:740px) {
+    .container {
+        flex-wrap: wrap;
+    }
+}
